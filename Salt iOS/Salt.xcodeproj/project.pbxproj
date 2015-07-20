@@ -10,6 +10,9 @@
 		8F00E17F1B1C312E007A4345 /* VCDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F00E17E1B1C312E007A4345 /* VCDetail.m */; };
 		8F12BC0B1B3403630060C449 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F12BC0A1B3403630060C449 /* Default-568h@2x.png */; };
 		8F1584001B27DF4E00CCB60C /* SBLeavesForApproval.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F1583FF1B27DF4E00CCB60C /* SBLeavesForApproval.storyboard */; };
+		8F2513681B56612E0070CFD9 /* VCLFAPendingDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2513671B56612E0070CFD9 /* VCLFAPendingDetail.m */; };
+		8F25136B1B5662290070CFD9 /* VCLFAProcessedDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F25136A1B5662290070CFD9 /* VCLFAProcessedDetail.m */; };
+		8F25136E1B56623B0070CFD9 /* VCLFACancelledDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F25136D1B56623B0070CFD9 /* VCLFACancelledDetail.m */; };
 		8F5290461B09EED300F517EA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5290451B09EED300F517EA /* main.m */; };
 		8F5290491B09EED300F517EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5290481B09EED300F517EA /* AppDelegate.m */; };
 		8F5290511B09EED300F517EA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F5290501B09EED300F517EA /* Images.xcassets */; };
@@ -33,6 +36,8 @@
 		8F6B39CE1B256B32003317AF /* VCMyCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6B39CD1B256B32003317AF /* VCMyCalendar.m */; };
 		8F6B39DA1B258323003317AF /* CellLocalHolidays.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6B39D91B258323003317AF /* CellLocalHolidays.m */; };
 		8F6B39DD1B258E8E003317AF /* LocalHoliday.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6B39DC1B258E8E003317AF /* LocalHoliday.m */; };
+		8F6DC9AF1B3D288B001F1CDC /* VelosiDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6DC9AE1B3D288B001F1CDC /* VelosiDatePicker.m */; };
+		8F6DC9B21B3D865F001F1CDC /* VCLeaveInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6DC9B11B3D865F001F1CDC /* VCLeaveInput.m */; };
 		8FA1AC001B0DC828009FE2E8 /* SBMyLeaves.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FA1ABFF1B0DC828009FE2E8 /* SBMyLeaves.storyboard */; };
 		8FA1AC031B0DD2A2009FE2E8 /* VCMyLeaves.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA1AC021B0DD2A2009FE2E8 /* VCMyLeaves.m */; };
 		8FA1AC061B0DD94E009FE2E8 /* CellMyLeave.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA1AC051B0DD94E009FE2E8 /* CellMyLeave.m */; };
@@ -53,6 +58,7 @@
 		8FB84CDB1B37D9B400E5267D /* CellMyCalendarDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB84CDA1B37D9B400E5267D /* CellMyCalendarDate.m */; };
 		8FB84CDE1B37D9C700E5267D /* CellMyCalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB84CDD1B37D9C700E5267D /* CellMyCalendarEvent.m */; };
 		8FBA37B11B0C922100D2B213 /* VCHomeScrollPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA37B01B0C922100D2B213 /* VCHomeScrollPage.m */; };
+		8FBAC4411B57B19000AA6E34 /* VCWeeklyHolidays.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAC4401B57B19000AA6E34 /* VCWeeklyHolidays.m */; };
 		8FC380421B0F2BBD00B502A4 /* OfflineGateway.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC380411B0F2BBD00B502A4 /* OfflineGateway.m */; };
 		8FC3973A1B14154000CFFFC3 /* Office.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC397391B14154000CFFFC3 /* Office.m */; };
 		8FD4BA321B292C5C002A87E6 /* CellLFAPending.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD4BA311B292C5C002A87E6 /* CellLFAPending.m */; };
@@ -61,6 +67,7 @@
 		8FD738541B12E7D000E14BCA /* SBLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FD738531B12E7D000E14BCA /* SBLogin.storyboard */; };
 		8FD7385A1B12F12600E14BCA /* VCLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD738591B12F12600E14BCA /* VCLogin.m */; };
 		8FD7385D1B13051400E14BCA /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD7385C1B13051400E14BCA /* MBProgressHUD.m */; };
+		8FE14D451B40D9D100A97129 /* StaffLeaveCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE14D441B40D9D100A97129 /* StaffLeaveCounter.m */; };
 		8FEF41411B2E971B00858C09 /* VCLeavesForApprovalProcessed.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF41401B2E971B00858C09 /* VCLeavesForApprovalProcessed.m */; };
 		8FEF41441B2E9D8000858C09 /* CellLFAProcessed.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF41431B2E9D8000858C09 /* CellLFAProcessed.m */; };
 		8FEF41471B2EAEB400858C09 /* CellLFACancelled.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF41461B2EAEB400858C09 /* CellLFACancelled.m */; };
@@ -84,6 +91,12 @@
 		8F069C5A1B268AEF00D6D4CF /* OfflineGatewaySavable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfflineGatewaySavable.h; sourceTree = "<group>"; };
 		8F12BC0A1B3403630060C449 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8F1583FF1B27DF4E00CCB60C /* SBLeavesForApproval.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SBLeavesForApproval.storyboard; sourceTree = "<group>"; };
+		8F2513661B56612E0070CFD9 /* VCLFAPendingDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCLFAPendingDetail.h; sourceTree = "<group>"; };
+		8F2513671B56612E0070CFD9 /* VCLFAPendingDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCLFAPendingDetail.m; sourceTree = "<group>"; };
+		8F2513691B5662290070CFD9 /* VCLFAProcessedDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCLFAProcessedDetail.h; sourceTree = "<group>"; };
+		8F25136A1B5662290070CFD9 /* VCLFAProcessedDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCLFAProcessedDetail.m; sourceTree = "<group>"; };
+		8F25136C1B56623B0070CFD9 /* VCLFACancelledDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCLFACancelledDetail.h; sourceTree = "<group>"; };
+		8F25136D1B56623B0070CFD9 /* VCLFACancelledDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCLFACancelledDetail.m; sourceTree = "<group>"; };
 		8F5290401B09EED300F517EA /* Salt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Salt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F5290441B09EED300F517EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F5290451B09EED300F517EA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -126,6 +139,10 @@
 		8F6B39D91B258323003317AF /* CellLocalHolidays.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellLocalHolidays.m; sourceTree = "<group>"; };
 		8F6B39DB1B258E8E003317AF /* LocalHoliday.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalHoliday.h; sourceTree = "<group>"; };
 		8F6B39DC1B258E8E003317AF /* LocalHoliday.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalHoliday.m; sourceTree = "<group>"; };
+		8F6DC9AD1B3D288B001F1CDC /* VelosiDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelosiDatePicker.h; sourceTree = "<group>"; };
+		8F6DC9AE1B3D288B001F1CDC /* VelosiDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VelosiDatePicker.m; sourceTree = "<group>"; };
+		8F6DC9B01B3D865F001F1CDC /* VCLeaveInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCLeaveInput.h; sourceTree = "<group>"; };
+		8F6DC9B11B3D865F001F1CDC /* VCLeaveInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCLeaveInput.m; sourceTree = "<group>"; };
 		8FA1ABFF1B0DC828009FE2E8 /* SBMyLeaves.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SBMyLeaves.storyboard; sourceTree = "<group>"; };
 		8FA1AC011B0DD2A2009FE2E8 /* VCMyLeaves.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCMyLeaves.h; sourceTree = "<group>"; };
 		8FA1AC021B0DD2A2009FE2E8 /* VCMyLeaves.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCMyLeaves.m; sourceTree = "<group>"; };
@@ -165,6 +182,8 @@
 		8FB84CDD1B37D9C700E5267D /* CellMyCalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellMyCalendarEvent.m; sourceTree = "<group>"; };
 		8FBA37AF1B0C922100D2B213 /* VCHomeScrollPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCHomeScrollPage.h; sourceTree = "<group>"; };
 		8FBA37B01B0C922100D2B213 /* VCHomeScrollPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCHomeScrollPage.m; sourceTree = "<group>"; };
+		8FBAC43F1B57B19000AA6E34 /* VCWeeklyHolidays.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCWeeklyHolidays.h; sourceTree = "<group>"; };
+		8FBAC4401B57B19000AA6E34 /* VCWeeklyHolidays.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCWeeklyHolidays.m; sourceTree = "<group>"; };
 		8FC380401B0F2BBD00B502A4 /* OfflineGateway.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfflineGateway.h; sourceTree = "<group>"; };
 		8FC380411B0F2BBD00B502A4 /* OfflineGateway.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfflineGateway.m; sourceTree = "<group>"; };
 		8FC397381B14154000CFFFC3 /* Office.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Office.h; sourceTree = "<group>"; };
@@ -181,6 +200,9 @@
 		8FD738591B12F12600E14BCA /* VCLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCLogin.m; sourceTree = "<group>"; };
 		8FD7385B1B13051400E14BCA /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = "../../Arc iOS/Jobs/MBProgressHUD.h"; sourceTree = "<group>"; };
 		8FD7385C1B13051400E14BCA /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = "../../Arc iOS/Jobs/MBProgressHUD.m"; sourceTree = "<group>"; };
+		8FE14D431B40D9D100A97129 /* StaffLeaveCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffLeaveCounter.h; sourceTree = "<group>"; };
+		8FE14D441B40D9D100A97129 /* StaffLeaveCounter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaffLeaveCounter.m; sourceTree = "<group>"; };
+		8FE14D461B40DA7E00A97129 /* StaffLeaveSyncListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffLeaveSyncListener.h; sourceTree = "<group>"; };
 		8FEF413F1B2E971B00858C09 /* VCLeavesForApprovalProcessed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCLeavesForApprovalProcessed.h; sourceTree = "<group>"; };
 		8FEF41401B2E971B00858C09 /* VCLeavesForApprovalProcessed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCLeavesForApprovalProcessed.m; sourceTree = "<group>"; };
 		8FEF41421B2E9D8000858C09 /* CellLFAProcessed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellLFAProcessed.h; sourceTree = "<group>"; };
@@ -334,6 +356,8 @@
 				8F5290831B0A16EE00F517EA /* PageNavigatorFactory.m */,
 				8FC380401B0F2BBD00B502A4 /* OfflineGateway.h */,
 				8FC380411B0F2BBD00B502A4 /* OfflineGateway.m */,
+				8FE14D431B40D9D100A97129 /* StaffLeaveCounter.h */,
+				8FE14D441B40D9D100A97129 /* StaffLeaveCounter.m */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -367,6 +391,8 @@
 				8FB84CDA1B37D9B400E5267D /* CellMyCalendarDate.m */,
 				8FB84CDC1B37D9C700E5267D /* CellMyCalendarEvent.h */,
 				8FB84CDD1B37D9C700E5267D /* CellMyCalendarEvent.m */,
+				8F6DC9AD1B3D288B001F1CDC /* VelosiDatePicker.h */,
+				8F6DC9AE1B3D288B001F1CDC /* VelosiDatePicker.m */,
 			);
 			name = customviews;
 			sourceTree = "<group>";
@@ -383,12 +409,20 @@
 				8FA1AC021B0DD2A2009FE2E8 /* VCMyLeaves.m */,
 				8FAE132F1B16DEA100EA9B69 /* VCMyLeaveDetail.h */,
 				8FAE13301B16DEA100EA9B69 /* VCMyLeaveDetail.m */,
+				8F6DC9B01B3D865F001F1CDC /* VCLeaveInput.h */,
+				8F6DC9B11B3D865F001F1CDC /* VCLeaveInput.m */,
 				8FD4BA331B2939A0002A87E6 /* VCLeavesForApprovalPending.h */,
 				8FD4BA341B2939A0002A87E6 /* VCLeavesForApprovalPending.m */,
+				8F2513661B56612E0070CFD9 /* VCLFAPendingDetail.h */,
+				8F2513671B56612E0070CFD9 /* VCLFAPendingDetail.m */,
 				8FEF413F1B2E971B00858C09 /* VCLeavesForApprovalProcessed.h */,
 				8FEF41401B2E971B00858C09 /* VCLeavesForApprovalProcessed.m */,
+				8F2513691B5662290070CFD9 /* VCLFAProcessedDetail.h */,
+				8F25136A1B5662290070CFD9 /* VCLFAProcessedDetail.m */,
 				8FEF41481B2EB14200858C09 /* VCLeavesForApprovalCancelled.h */,
 				8FEF41491B2EB14200858C09 /* VCLeavesForApprovalCancelled.m */,
+				8F25136C1B56623B0070CFD9 /* VCLFACancelledDetail.h */,
+				8F25136D1B56623B0070CFD9 /* VCLFACancelledDetail.m */,
 				8F00E17D1B1C312E007A4345 /* VCDetail.h */,
 				8F00E17E1B1C312E007A4345 /* VCDetail.m */,
 				8F6B39C21B255EC5003317AF /* VCMonthlyHolidays.h */,
@@ -399,6 +433,8 @@
 				8F6B39CD1B256B32003317AF /* VCMyCalendar.m */,
 				8FD4BA361B2964AB002A87E6 /* VCLeavesForApprovalTab.h */,
 				8FD4BA371B2964AB002A87E6 /* VCLeavesForApprovalTab.m */,
+				8FBAC43F1B57B19000AA6E34 /* VCWeeklyHolidays.h */,
+				8FBAC4401B57B19000AA6E34 /* VCWeeklyHolidays.m */,
 			);
 			name = sidebarpages;
 			sourceTree = "<group>";
@@ -424,6 +460,7 @@
 				8FF6F4101B15B71300C48880 /* VelosiPickerRowSelectionDelegate.h */,
 				8F069C5A1B268AEF00D6D4CF /* OfflineGatewaySavable.h */,
 				8FD4BA3A1B296B96002A87E6 /* LoaderDelegate.h */,
+				8FE14D461B40DA7E00A97129 /* StaffLeaveSyncListener.h */,
 			);
 			name = protocols;
 			sourceTree = "<group>";
@@ -542,6 +579,7 @@
 				8FBA37B11B0C922100D2B213 /* VCHomeScrollPage.m in Sources */,
 				8FD4BA381B2964AB002A87E6 /* VCLeavesForApprovalTab.m in Sources */,
 				8FA1AC091B0DDAC4009FE2E8 /* Leave.m in Sources */,
+				8FE14D451B40D9D100A97129 /* StaffLeaveCounter.m in Sources */,
 				8FA442AE1B2FC68200D267C5 /* CellHoliday.m in Sources */,
 				8F6B39CE1B256B32003317AF /* VCMyCalendar.m in Sources */,
 				8FA8D0371B0AD1EB0036C166 /* VCHome.m in Sources */,
@@ -558,14 +596,18 @@
 				8F52906B1B09EF8900F517EA /* VCSlider.m in Sources */,
 				8F00E17F1B1C312E007A4345 /* VCDetail.m in Sources */,
 				8F5290811B0A12EF00F517EA /* CellSidebar.m in Sources */,
+				8FBAC4411B57B19000AA6E34 /* VCWeeklyHolidays.m in Sources */,
 				8F5290791B09F4AE00F517EA /* OnlineGateway.m in Sources */,
+				8F2513681B56612E0070CFD9 /* VCLFAPendingDetail.m in Sources */,
 				8FEF41471B2EAEB400858C09 /* CellLFACancelled.m in Sources */,
 				8FA1AC031B0DD2A2009FE2E8 /* VCMyLeaves.m in Sources */,
 				8F6B39C41B255EC5003317AF /* VCMonthlyHolidays.m in Sources */,
 				8F5290841B0A16EE00F517EA /* PageNavigatorFactory.m in Sources */,
 				8FC380421B0F2BBD00B502A4 /* OfflineGateway.m in Sources */,
+				8F6DC9AF1B3D288B001F1CDC /* VelosiDatePicker.m in Sources */,
 				8FEF41441B2E9D8000858C09 /* CellLFAProcessed.m in Sources */,
 				8F52906F1B09F06600F517EA /* DAKeyboardControl.m in Sources */,
+				8F6DC9B21B3D865F001F1CDC /* VCLeaveInput.m in Sources */,
 				8FD7385D1B13051400E14BCA /* MBProgressHUD.m in Sources */,
 				8FEF414A1B2EB14200858C09 /* VCLeavesForApprovalCancelled.m in Sources */,
 				8FD4BA321B292C5C002A87E6 /* CellLFAPending.m in Sources */,
@@ -576,7 +618,9 @@
 				8F52908E1B0A29A500F517EA /* VCPage.m in Sources */,
 				8FF6F4131B15BB5A00C48880 /* VelosiCustomPicker.m in Sources */,
 				8FA982D91B0B3F610031BFA7 /* VCHomeLeaves.m in Sources */,
+				8F25136E1B56623B0070CFD9 /* VCLFACancelledDetail.m in Sources */,
 				8FAB4D1D1B380DBD00C1E54C /* CalendarEvent.m in Sources */,
+				8F25136B1B5662290070CFD9 /* VCLFAProcessedDetail.m in Sources */,
 				8F5290461B09EED300F517EA /* main.m in Sources */,
 				8FB84CDE1B37D9C700E5267D /* CellMyCalendarEvent.m in Sources */,
 				8F6B39DD1B258E8E003317AF /* LocalHoliday.m in Sources */,
