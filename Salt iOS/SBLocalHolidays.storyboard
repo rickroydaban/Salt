@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="xtr-0Z-FaM">
+            <objects>
+                <navigationController storyboardIdentifier="localHolidaysPage" automaticallyAdjustsScrollViewInsets="NO" id="398-Ox-thf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="y5H-0X-l1g">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="tOr-fR-QM6" kind="relationship" relationship="rootViewController" id="TxA-xO-kwh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VlX-m6-rg2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1111" y="168"/>
+        </scene>
+        <!--Local Holidays-->
+        <scene sceneID="c6h-pN-KbX">
+            <objects>
+                <viewController id="tOr-fR-QM6" customClass="VCLocalHolidays" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ry0-Xt-C6j"/>
+                        <viewControllerLayoutGuide type="bottom" id="dFV-Xl-426"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GLF-2T-zPo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="55" sectionHeaderHeight="20" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="iyH-qM-FE0">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="55" id="zt7-4V-z8w" customClass="CellLocalHolidays">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zt7-4V-z8w" id="XhF-Zr-LGY">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Year's Day" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koM-HV-07e">
+                                                    <rect key="frame" x="17" y="8" width="575" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="bi2-Xl-XtQ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wednesday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXX-zC-tvf">
+                                                    <rect key="frame" x="17" y="26" width="70" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="i3j-S1-3fO"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02-Jan-2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUr-tJ-gUO">
+                                                    <rect key="frame" x="88" y="26" width="77" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="23d-Fn-yOQ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="OUr-tJ-gUO" firstAttribute="leading" secondItem="NXX-zC-tvf" secondAttribute="trailing" constant="1" id="Oxq-nM-qxa"/>
+                                                <constraint firstItem="koM-HV-07e" firstAttribute="trailing" secondItem="XhF-Zr-LGY" secondAttribute="trailingMargin" id="Vv0-ZB-YkI"/>
+                                                <constraint firstItem="koM-HV-07e" firstAttribute="leading" secondItem="XhF-Zr-LGY" secondAttribute="leadingMargin" constant="9" id="Xhd-th-xxb"/>
+                                                <constraint firstItem="koM-HV-07e" firstAttribute="top" secondItem="XhF-Zr-LGY" secondAttribute="topMargin" id="cFs-AV-kgc"/>
+                                                <constraint firstItem="NXX-zC-tvf" firstAttribute="leading" secondItem="XhF-Zr-LGY" secondAttribute="leadingMargin" constant="9" id="dZo-yU-JbC"/>
+                                                <constraint firstItem="OUr-tJ-gUO" firstAttribute="baseline" secondItem="NXX-zC-tvf" secondAttribute="baseline" id="ha6-64-zef"/>
+                                                <constraint firstItem="NXX-zC-tvf" firstAttribute="top" secondItem="koM-HV-07e" secondAttribute="bottom" constant="-3" id="sDv-9g-KqA"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="propLabelDate" destination="OUr-tJ-gUO" id="EmW-Qg-lw9"/>
+                                            <outlet property="propLabelDay" destination="NXX-zC-tvf" id="EOH-Yd-iEw"/>
+                                            <outlet property="propLabelTitle" destination="koM-HV-07e" id="cP7-JE-gyk"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iyH-qM-FE0" firstAttribute="leading" secondItem="GLF-2T-zPo" secondAttribute="leading" id="PQd-Cw-vUA"/>
+                            <constraint firstAttribute="trailing" secondItem="iyH-qM-FE0" secondAttribute="trailing" id="QGy-Ae-mf5"/>
+                            <constraint firstItem="iyH-qM-FE0" firstAttribute="top" secondItem="GLF-2T-zPo" secondAttribute="top" id="S3y-ht-0bB"/>
+                            <constraint firstItem="dFV-Xl-426" firstAttribute="top" secondItem="iyH-qM-FE0" secondAttribute="bottom" id="Ydc-yV-Na0"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Local Holidays" id="aU2-qh-Owf">
+                        <barButtonItem key="leftBarButtonItem" image="icon_list" style="plain" id="MiN-nw-uu6">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="toggleList:" destination="tOr-fR-QM6" id="wwZ-2Y-cm8"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="refresh" id="eR9-Nn-yst">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="refresh:" destination="tOr-fR-QM6" id="Lhf-lO-zt5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="_propLV" destination="iyH-qM-FE0" id="wSQ-gE-uus"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gqO-3a-2By" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1907" y="168"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon_list" width="20" height="20"/>
+    </resources>
+</document>

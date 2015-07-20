@@ -8,7 +8,12 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate ()
+@interface AppDelegate (){
+    Staff *_staff; //must not be visible as interface so we can serialize this object for every staff and office update
+    Office *_office;
+    
+    NSMutableArray *_myLeaves, *_leavesForApproval;
+}
 
 @end
 
@@ -16,30 +21,81 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.propPageNavigator = [PageNavigatorFactory sharedNavigators];
+    
+    self.propFormatVelosiDate = [[NSDateFormatter alloc] init];
+    self.propFormatVelosiDate.dateFormat = @"dd-MMM-yyyy";
+    self.propDateFormatMonthyear = [[NSDateFormatter alloc] init];
+    self.propDateFormatMonthyear.dateFormat = @"MMMM-yyyy";
+    self.propDateFormatDateTime = [[NSDateFormatter alloc] init];
+    self.propDateFormatDateTime.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    
+    self.propGatewayOnline = [[OnlineGateway alloc] initWithAppDelegate:self];
+    self.propGatewayOffline = [[OfflineGateway alloc] initWithAppDelegate:self];
+    
+    _staffLeaveCounter = [[StaffLeaveCounter alloc] initWithAppDelegate:self];
+    NSDateFormatter *yearOnlyFormatter = [[NSDateFormatter alloc] init];
+    yearOnlyFormatter.dateFormat = @"yyyy";
+    _currYear = [[yearOnlyFormatter stringFromDate:[NSDate date]] intValue];
+    _filterYears = @[[NSString stringWithFormat:@"%d",_currYear+1], [NSString stringWithFormat:@"%d",_currYear], [NSString stringWithFormat:@"%d",_currYear-1], [NSString stringWithFormat:@"%d",_currYear-2], [NSString stringWithFormat:@"%d",_currYear-3], [NSString stringWithFormat:@"%d",_currYear-4]];
+    
+    if([_propGatewayOffline isLoggedIn]){
+        _staff = [_propGatewayOffline deserializeStaff];
+    }
+
+    _myLeaves = [NSMutableArray array];
+    _leavesForApproval = [NSMutableArray array];
+
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+- (Staff *)staff{
+    return _staff;
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+- (Office *)office{
+    return _office;
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+- (void)updateStaffDataWithStaff:(Staff *)staff office:(Office *)office key:(OnlineGateway *)onlineGateway{
+    _staff = staff;
+    _office = office;
+    [_propGatewayOffline serializeStaff:staff office:office];
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+- (void) initMyLeaves:(NSArray *)myLeaves leavesForApproval:(NSArray *)leavesForApproval{
+    [_myLeaves removeAllObjects];
+    [_leavesForApproval removeAllObjects];
+    [_myLeaves addObjectsFromArray:myLeaves];
+    [_leavesForApproval addObjectsFromArray:leavesForApproval];
+    [_propGatewayOffline serializeMyLeaves:_myLeaves];
+    [_propGatewayOffline serializeLeavesForApproval:_leavesForApproval];
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+- (void)updateMyLeaves:(NSMutableArray *)myLeaves{
+    [_myLeaves removeAllObjects];
+    [_myLeaves addObjectsFromArray:myLeaves];
+}
+
+- (void)updateLeavesForApproval:(NSMutableArray *)leavesForApproval{
+    [_leavesForApproval removeAllObjects];
+    [_leavesForApproval addObjectsFromArray:leavesForApproval];
+}
+
+- (NSArray *)myLeaves{
+    return _myLeaves;
+}
+
+- (NSArray *)leavesForApproval{
+    return _leavesForApproval;
+}
+
+- (void)setSlider:(VCSlider *)slider{
+    _propSlider = slider;
+}
+
++ (NSString *)all{
+    return @"All";
 }
 
 @end
