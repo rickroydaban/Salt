@@ -45,9 +45,6 @@
 		8FA442AE1B2FC68200D267C5 /* CellHoliday.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA442AD1B2FC68200D267C5 /* CellHoliday.m */; };
 		8FA442B11B2FE69100D267C5 /* Holiday.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA442B01B2FE69100D267C5 /* Holiday.m */; };
 		8FA8D0371B0AD1EB0036C166 /* VCHome.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8D0361B0AD1EB0036C166 /* VCHome.m */; };
-		8FA982D91B0B3F610031BFA7 /* VCHomeLeaves.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA982D31B0B3F610031BFA7 /* VCHomeLeaves.m */; };
-		8FA982DA1B0B3F610031BFA7 /* VCHomeClaims.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA982D51B0B3F610031BFA7 /* VCHomeClaims.m */; };
-		8FA982DB1B0B3F610031BFA7 /* VCHomeAdvances.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA982D71B0B3F610031BFA7 /* VCHomeAdvances.m */; };
 		8FAB4D1A1B380C9500C1E54C /* CalendarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FAB4D191B380C9500C1E54C /* CalendarItem.m */; };
 		8FAB4D1D1B380DBD00C1E54C /* CalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FAB4D1C1B380DBD00C1E54C /* CalendarEvent.m */; };
 		8FAD26571B0C6C42005F610D /* CellHomeHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FAD26561B0C6C42005F610D /* CellHomeHeader.m */; };
@@ -68,6 +65,9 @@
 		8FD7385A1B12F12600E14BCA /* VCLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD738591B12F12600E14BCA /* VCLogin.m */; };
 		8FD7385D1B13051400E14BCA /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD7385C1B13051400E14BCA /* MBProgressHUD.m */; };
 		8FE14D451B40D9D100A97129 /* StaffLeaveCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE14D441B40D9D100A97129 /* StaffLeaveCounter.m */; };
+		8FE568321B5CEEB20057751A /* VCHomeLeaves.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE568311B5CEEB20057751A /* VCHomeLeaves.m */; };
+		8FE568371B5CEEC10057751A /* VCHomeAdvances.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE568341B5CEEC10057751A /* VCHomeAdvances.m */; };
+		8FE568381B5CEEC10057751A /* VCHomeClaims.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE568361B5CEEC10057751A /* VCHomeClaims.m */; };
 		8FEF41411B2E971B00858C09 /* VCLeavesForApprovalProcessed.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF41401B2E971B00858C09 /* VCLeavesForApprovalProcessed.m */; };
 		8FEF41441B2E9D8000858C09 /* CellLFAProcessed.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF41431B2E9D8000858C09 /* CellLFAProcessed.m */; };
 		8FEF41471B2EAEB400858C09 /* CellLFACancelled.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF41461B2EAEB400858C09 /* CellLFACancelled.m */; };
@@ -156,12 +156,6 @@
 		8FA442B01B2FE69100D267C5 /* Holiday.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Holiday.m; sourceTree = "<group>"; };
 		8FA8D0351B0AD1EB0036C166 /* VCHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCHome.h; sourceTree = "<group>"; };
 		8FA8D0361B0AD1EB0036C166 /* VCHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCHome.m; sourceTree = "<group>"; };
-		8FA982D21B0B3F610031BFA7 /* VCHomeLeaves.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VCHomeLeaves.h; path = "../../Unused Projects/Salt/Salt/VCHomeLeaves.h"; sourceTree = "<group>"; };
-		8FA982D31B0B3F610031BFA7 /* VCHomeLeaves.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VCHomeLeaves.m; path = "../../Unused Projects/Salt/Salt/VCHomeLeaves.m"; sourceTree = "<group>"; };
-		8FA982D41B0B3F610031BFA7 /* VCHomeClaims.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VCHomeClaims.h; path = "../../Unused Projects/Salt/Salt/VCHomeClaims.h"; sourceTree = "<group>"; };
-		8FA982D51B0B3F610031BFA7 /* VCHomeClaims.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VCHomeClaims.m; path = "../../Unused Projects/Salt/Salt/VCHomeClaims.m"; sourceTree = "<group>"; };
-		8FA982D61B0B3F610031BFA7 /* VCHomeAdvances.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VCHomeAdvances.h; path = "../../Unused Projects/Salt/Salt/VCHomeAdvances.h"; sourceTree = "<group>"; };
-		8FA982D71B0B3F610031BFA7 /* VCHomeAdvances.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VCHomeAdvances.m; path = "../../Unused Projects/Salt/Salt/VCHomeAdvances.m"; sourceTree = "<group>"; };
 		8FAB4D181B380C9500C1E54C /* CalendarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarItem.h; sourceTree = "<group>"; };
 		8FAB4D191B380C9500C1E54C /* CalendarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarItem.m; sourceTree = "<group>"; };
 		8FAB4D1B1B380DBD00C1E54C /* CalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEvent.h; sourceTree = "<group>"; };
@@ -203,6 +197,12 @@
 		8FE14D431B40D9D100A97129 /* StaffLeaveCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffLeaveCounter.h; sourceTree = "<group>"; };
 		8FE14D441B40D9D100A97129 /* StaffLeaveCounter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaffLeaveCounter.m; sourceTree = "<group>"; };
 		8FE14D461B40DA7E00A97129 /* StaffLeaveSyncListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffLeaveSyncListener.h; sourceTree = "<group>"; };
+		8FE568301B5CEEB20057751A /* VCHomeLeaves.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCHomeLeaves.h; sourceTree = "<group>"; };
+		8FE568311B5CEEB20057751A /* VCHomeLeaves.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCHomeLeaves.m; sourceTree = "<group>"; };
+		8FE568331B5CEEC10057751A /* VCHomeAdvances.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCHomeAdvances.h; sourceTree = "<group>"; };
+		8FE568341B5CEEC10057751A /* VCHomeAdvances.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCHomeAdvances.m; sourceTree = "<group>"; };
+		8FE568351B5CEEC10057751A /* VCHomeClaims.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCHomeClaims.h; sourceTree = "<group>"; };
+		8FE568361B5CEEC10057751A /* VCHomeClaims.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCHomeClaims.m; sourceTree = "<group>"; };
 		8FEF413F1B2E971B00858C09 /* VCLeavesForApprovalProcessed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCLeavesForApprovalProcessed.h; sourceTree = "<group>"; };
 		8FEF41401B2E971B00858C09 /* VCLeavesForApprovalProcessed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCLeavesForApprovalProcessed.m; sourceTree = "<group>"; };
 		8FEF41421B2E9D8000858C09 /* CellLFAProcessed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellLFAProcessed.h; sourceTree = "<group>"; };
@@ -444,12 +444,12 @@
 			children = (
 				8FBA37AF1B0C922100D2B213 /* VCHomeScrollPage.h */,
 				8FBA37B01B0C922100D2B213 /* VCHomeScrollPage.m */,
-				8FA982D21B0B3F610031BFA7 /* VCHomeLeaves.h */,
-				8FA982D31B0B3F610031BFA7 /* VCHomeLeaves.m */,
-				8FA982D41B0B3F610031BFA7 /* VCHomeClaims.h */,
-				8FA982D51B0B3F610031BFA7 /* VCHomeClaims.m */,
-				8FA982D61B0B3F610031BFA7 /* VCHomeAdvances.h */,
-				8FA982D71B0B3F610031BFA7 /* VCHomeAdvances.m */,
+				8FE568301B5CEEB20057751A /* VCHomeLeaves.h */,
+				8FE568311B5CEEB20057751A /* VCHomeLeaves.m */,
+				8FE568331B5CEEC10057751A /* VCHomeAdvances.h */,
+				8FE568341B5CEEC10057751A /* VCHomeAdvances.m */,
+				8FE568351B5CEEC10057751A /* VCHomeClaims.h */,
+				8FE568361B5CEEC10057751A /* VCHomeClaims.m */,
 			);
 			name = homescrollpages;
 			sourceTree = "<group>";
@@ -586,7 +586,6 @@
 				8FAB4D1A1B380C9500C1E54C /* CalendarItem.m in Sources */,
 				8FD4BA351B2939A0002A87E6 /* VCLeavesForApprovalPending.m in Sources */,
 				8FA1AC061B0DD94E009FE2E8 /* CellMyLeave.m in Sources */,
-				8FA982DA1B0B3F610031BFA7 /* VCHomeClaims.m in Sources */,
 				8FAD26601B0C7A05005F610D /* HomeOverviewItem.m in Sources */,
 				8FD7385A1B12F12600E14BCA /* VCLogin.m in Sources */,
 				8FAD265D1B0C6C7F005F610D /* CellHomeItem2.m in Sources */,
@@ -595,6 +594,7 @@
 				8FEF41411B2E971B00858C09 /* VCLeavesForApprovalProcessed.m in Sources */,
 				8F52906B1B09EF8900F517EA /* VCSlider.m in Sources */,
 				8F00E17F1B1C312E007A4345 /* VCDetail.m in Sources */,
+				8FE568381B5CEEC10057751A /* VCHomeClaims.m in Sources */,
 				8F5290811B0A12EF00F517EA /* CellSidebar.m in Sources */,
 				8FBAC4411B57B19000AA6E34 /* VCWeeklyHolidays.m in Sources */,
 				8F5290791B09F4AE00F517EA /* OnlineGateway.m in Sources */,
@@ -617,16 +617,16 @@
 				8FA442B11B2FE69100D267C5 /* Holiday.m in Sources */,
 				8F52908E1B0A29A500F517EA /* VCPage.m in Sources */,
 				8FF6F4131B15BB5A00C48880 /* VelosiCustomPicker.m in Sources */,
-				8FA982D91B0B3F610031BFA7 /* VCHomeLeaves.m in Sources */,
 				8F25136E1B56623B0070CFD9 /* VCLFACancelledDetail.m in Sources */,
 				8FAB4D1D1B380DBD00C1E54C /* CalendarEvent.m in Sources */,
 				8F25136B1B5662290070CFD9 /* VCLFAProcessedDetail.m in Sources */,
 				8F5290461B09EED300F517EA /* main.m in Sources */,
 				8FB84CDE1B37D9C700E5267D /* CellMyCalendarEvent.m in Sources */,
+				8FE568321B5CEEB20057751A /* VCHomeLeaves.m in Sources */,
+				8FE568371B5CEEC10057751A /* VCHomeAdvances.m in Sources */,
 				8F6B39DD1B258E8E003317AF /* LocalHoliday.m in Sources */,
 				8FAD26571B0C6C42005F610D /* CellHomeHeader.m in Sources */,
 				8F6B39C91B256423003317AF /* VCLocalHolidays.m in Sources */,
-				8FA982DB1B0B3F610031BFA7 /* VCHomeAdvances.m in Sources */,
 				8F5290761B09F44200F517EA /* Staff.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
