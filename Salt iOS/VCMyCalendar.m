@@ -81,57 +81,56 @@
             else if([myleaveResult isKindOfClass:[NSString class]])
                 [[[UIAlertView alloc] initWithTitle:@"" message:myleaveResult delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil] show];
             else{
-                NSMutableArray *holidays = [NSMutableArray arrayWithArray:holidayResult];
-                NSMutableArray *myLeaves = [NSMutableArray arrayWithArray:myleaveResult];
+                [self.propAppDelegate updateMyLeaves:myleaveResult];
+                [self.propAppDelegate updateLocalHolidays:holidayResult];
+            }
+            for(LocalHoliday *holiday in [self.propAppDelegate localHolidays]){
+                NSMutableArray *currEvents = ([_allEvents objectForKey:[holiday propDate]] != nil)?[_allEvents objectForKey:[holiday propDate]]:[NSMutableArray array];
+                [currEvents addObject:[[CalendarEvent alloc] initWithName:[holiday propName] color:[VelosiColors colorHoliday] duration:AllDay shouldFill:YES]];
+                [_allEvents setObject:currEvents forKey:[holiday propDate]];
+            }
+            
+            for(Leave *leave in [self.propAppDelegate myLeaves]){
+                NSDate *startDate = [self.propAppDelegate.propFormatVelosiDate dateFromString:[leave propStartDate]];
+                NSDate *endDate = [self.propAppDelegate.propFormatVelosiDate dateFromString:[leave propEndDate]];
+                NSDateComponents *componentDateStart = [_calendar components:(NSCalendarUnitDay | NSCalendarUnitYear | NSCalendarUnitMonth) fromDate:startDate];
+                NSDateComponents *componentDateEnd = [_calendar components:(NSCalendarUnitDay | NSCalendarUnitYear | NSCalendarUnitMonth) fromDate:endDate];
+                [componentDateStart setCalendar:_calendar];
+                [componentDateEnd setCalendar:_calendar];
                 
-                for(LocalHoliday *holiday in holidays){
-                    NSMutableArray *currEvents = ([_allEvents objectForKey:[holiday propDate]] != nil)?[_allEvents objectForKey:[holiday propDate]]:[NSMutableArray array];
-                    [currEvents addObject:[[CalendarEvent alloc] initWithName:[holiday propName] color:[VelosiColors colorHoliday] duration:AllDay shouldFill:YES]];
-                    [_allEvents setObject:currEvents forKey:[holiday propDate]];
-                }
-                
-                for(Leave *leave in myLeaves){
-                    NSDate *startDate = [self.propAppDelegate.propFormatVelosiDate dateFromString:[leave propStartDate]];
-                    NSDate *endDate = [self.propAppDelegate.propFormatVelosiDate dateFromString:[leave propEndDate]];
-                    NSDateComponents *componentDateStart = [_calendar components:(NSCalendarUnitDay | NSCalendarUnitYear | NSCalendarUnitMonth) fromDate:startDate];
-                    NSDateComponents *componentDateEnd = [_calendar components:(NSCalendarUnitDay | NSCalendarUnitYear | NSCalendarUnitMonth) fromDate:endDate];
-                    [componentDateStart setCalendar:_calendar];
-                    [componentDateEnd setCalendar:_calendar];
+                while([[componentDateEnd date] compare:[componentDateStart date]] == NSOrderedSame || [[componentDateEnd date] compare:[componentDateStart date]] == NSOrderedDescending){
                     
-                    while([[componentDateEnd date] compare:[componentDateStart date]] == NSOrderedSame || [[componentDateEnd date] compare:[componentDateStart date]] == NSOrderedDescending){
-                        
-                        NSString *currDate = [self.propAppDelegate.propFormatVelosiDate stringFromDate:[componentDateStart date]];
-                        NSMutableArray *currEvents = ([_allEvents objectForKey:currDate] != nil)?[_allEvents objectForKey:currDate]:[NSMutableArray array];
-                        NSString *desc = [leave propTypeDescription];
-                        CalendarEventDuration duration;
-                        if([leave propDays] == 0.1f) duration   = AM;
-                        else if([leave propDays] == 0.2f) duration = PM;
-                        else duration = AllDay;
-                        
-                        BOOL shouldFill = ([leave propStatusID] == LEAVESTATUSID_PENDING)?false:true;
-                        
-                        if([desc isEqualToString:LEAVETYPEDESC_VACATION])
-                            [currEvents addObject:[[CalendarEvent alloc] initWithName:desc color:[VelosiColors colorLeaveTypeVacation] duration:duration shouldFill:shouldFill]];
-                        else if([desc isEqualToString:LEAVETYPEDESC_SICK])
-                            [currEvents addObject:[[CalendarEvent alloc] initWithName:desc color:[VelosiColors colorLeaveTypeSick] duration:duration shouldFill:shouldFill]];
-                        else if([desc isEqualToString:LEAVETYPEDESC_BIRTHDAY])
-                            [currEvents addObject:[[CalendarEvent alloc] initWithName:desc color:[VelosiColors colorLeaveTypeBirthday] duration:duration shouldFill:shouldFill]];
-                        else if([desc isEqualToString:LEAVETYPEDESC_UNPAID])
-                            [currEvents addObject:[[CalendarEvent alloc] initWithName:desc color:[VelosiColors colorLeaveTypeUnpaid] duration:duration shouldFill:shouldFill]];
-                        else if([desc isEqualToString:LEAVETYPEDESC_BEREAVEMENT])
-                            [currEvents addObject:[[CalendarEvent alloc] initWithName:desc color:[VelosiColors colorLeaveTypeBereavement] duration:duration shouldFill:shouldFill]];
-                        else if([desc isEqualToString:LEAVETYPEDESC_MATPAT])
-                            [currEvents addObject:[[CalendarEvent alloc] initWithName:desc color:[VelosiColors colorLeaveTypeMatPat] duration:duration shouldFill:shouldFill]];
-                        else if([desc isEqualToString:LEAVETYPEDESC_DOCDENTIST])
-                            [currEvents addObject:[[CalendarEvent alloc] initWithName:desc color:[VelosiColors colorLeaveTypeDoctor] duration:duration shouldFill:shouldFill]];
-                        else if([desc isEqualToString:LEAVETYPEDESC_HOSPITALIZATION])
-                            [currEvents addObject:[[CalendarEvent alloc] initWithName:desc color:[VelosiColors colorLeaveTypeHospitalization] duration:duration shouldFill:shouldFill]];
-                        else
-                            [currEvents addObject:[[CalendarEvent alloc] initWithName:desc color:[VelosiColors colorLeaveTypeBusinessTrip] duration:duration shouldFill:shouldFill]];
-                        
-                        [_allEvents setObject:currEvents forKey:currDate];
-                        componentDateStart.day = componentDateStart.day + 1;
-                    }
+                    NSString *currDate = [self.propAppDelegate.propFormatVelosiDate stringFromDate:[componentDateStart date]];
+                    NSMutableArray *currEvents = ([_allEvents objectForKey:currDate] != nil)?[_allEvents objectForKey:currDate]:[NSMutableArray array];
+                    NSString *desc = [leave propTypeDescription];
+                    CalendarEventDuration duration;
+                    if([leave propDays] == 0.1f) duration   = AM;
+                    else if([leave propDays] == 0.2f) duration = PM;
+                    else duration = AllDay;
+                    
+                    BOOL shouldFill = ([leave propStatusID] == LEAVESTATUSID_PENDING)?false:true;
+                    
+                    if([desc isEqualToString:LEAVETYPEDESC_VACATION])
+                        [currEvents addObject:[[CalendarEvent alloc] initWithName:desc color:[VelosiColors colorLeaveTypeVacation] duration:duration shouldFill:shouldFill]];
+                    else if([desc isEqualToString:LEAVETYPEDESC_SICK])
+                        [currEvents addObject:[[CalendarEvent alloc] initWithName:desc color:[VelosiColors colorLeaveTypeSick] duration:duration shouldFill:shouldFill]];
+                    else if([desc isEqualToString:LEAVETYPEDESC_BIRTHDAY])
+                        [currEvents addObject:[[CalendarEvent alloc] initWithName:desc color:[VelosiColors colorLeaveTypeBirthday] duration:duration shouldFill:shouldFill]];
+                    else if([desc isEqualToString:LEAVETYPEDESC_UNPAID])
+                        [currEvents addObject:[[CalendarEvent alloc] initWithName:desc color:[VelosiColors colorLeaveTypeUnpaid] duration:duration shouldFill:shouldFill]];
+                    else if([desc isEqualToString:LEAVETYPEDESC_BEREAVEMENT])
+                        [currEvents addObject:[[CalendarEvent alloc] initWithName:desc color:[VelosiColors colorLeaveTypeBereavement] duration:duration shouldFill:shouldFill]];
+                    else if([desc isEqualToString:LEAVETYPEDESC_MATPAT])
+                        [currEvents addObject:[[CalendarEvent alloc] initWithName:desc color:[VelosiColors colorLeaveTypeMatPat] duration:duration shouldFill:shouldFill]];
+                    else if([desc isEqualToString:LEAVETYPEDESC_DOCDENTIST])
+                        [currEvents addObject:[[CalendarEvent alloc] initWithName:desc color:[VelosiColors colorLeaveTypeDoctor] duration:duration shouldFill:shouldFill]];
+                    else if([desc isEqualToString:LEAVETYPEDESC_HOSPITALIZATION])
+                        [currEvents addObject:[[CalendarEvent alloc] initWithName:desc color:[VelosiColors colorLeaveTypeHospitalization] duration:duration shouldFill:shouldFill]];
+                    else
+                        [currEvents addObject:[[CalendarEvent alloc] initWithName:desc color:[VelosiColors colorLeaveTypeBusinessTrip] duration:duration shouldFill:shouldFill]];
+                    
+                    [_allEvents setObject:currEvents forKey:currDate];
+                    componentDateStart.day = componentDateStart.day + 1;
                 }
                 
                 [self reloadFromCache];

@@ -12,7 +12,7 @@
     Staff *_staff; //must not be visible as interface so we can serialize this object for every staff and office update
     Office *_office;
     
-    NSMutableArray *_myLeaves, *_leavesForApproval;
+    NSMutableArray *_myLeaves, *_leavesForApproval, *_monthlyHolidays, *_localHolidays;
 }
 
 @end
@@ -41,10 +41,17 @@
     
     if([_propGatewayOffline isLoggedIn]){
         _staff = [_propGatewayOffline deserializeStaff];
+        _myLeaves = [_propGatewayOffline deserializeMyLeaves];
+        _leavesForApproval = [_propGatewayOffline deserializeLeavesForApproval];
+        _monthlyHolidays = [_propGatewayOffline deserializeMonthlyHolidays];
+        _localHolidays = [_propGatewayOffline deserializeLocalHolidays];
+    }else{
+        _myLeaves = [NSMutableArray array];
+        _leavesForApproval = [NSMutableArray array];
+        _monthlyHolidays = [NSMutableArray array];
+        _localHolidays = [NSMutableArray array];
+        
     }
-
-    _myLeaves = [NSMutableArray array];
-    _leavesForApproval = [NSMutableArray array];
 
     return YES;
 }
@@ -75,11 +82,25 @@
 - (void)updateMyLeaves:(NSMutableArray *)myLeaves{
     [_myLeaves removeAllObjects];
     [_myLeaves addObjectsFromArray:myLeaves];
+    [_propGatewayOffline serializeMyLeaves:myLeaves];
 }
 
 - (void)updateLeavesForApproval:(NSMutableArray *)leavesForApproval{
     [_leavesForApproval removeAllObjects];
     [_leavesForApproval addObjectsFromArray:leavesForApproval];
+    [_propGatewayOffline serializeLeavesForApproval:leavesForApproval];
+}
+
+- (void)updateMonthlyHolidays:(NSMutableArray *)monthlyHolidays{
+    [_monthlyHolidays removeAllObjects];
+    [_monthlyHolidays addObjectsFromArray:monthlyHolidays];
+    [_propGatewayOffline serializeMonthlyHolidays:monthlyHolidays];
+}
+
+- (void)updateLocalHolidays:(NSMutableArray *)localHolidays{
+    [_localHolidays removeAllObjects];
+    [_localHolidays addObjectsFromArray:localHolidays];
+    [_propGatewayOffline serializeLocalHolidays:localHolidays];
 }
 
 - (NSArray *)myLeaves{
@@ -88,6 +109,14 @@
 
 - (NSArray *)leavesForApproval{
     return _leavesForApproval;
+}
+
+- (NSArray *)monthlyHolidays{
+    return _monthlyHolidays;
+}
+
+- (NSArray *)localHolidays{
+    return _localHolidays;
 }
 
 - (void)setSlider:(VCSlider *)slider{

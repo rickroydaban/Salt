@@ -23,8 +23,7 @@
     UIBarButtonItem *_buttonNewLeaveRequest;
     UIPickerView *_pickerYear, *_pickerLeaveType, *_pickerLeaveStatus;
     
-    NSMutableArray *_propListLeaves; //leaves fetched online
-    NSMutableArray *_myLeaves; //filtered leaves
+    NSMutableArray *_filteredLeaves; //filtered leaves
     NSArray *_leaveTypes, *_leaveStatuses;
 }
 @end
@@ -35,8 +34,7 @@
     [super viewDidLoad];
     _leaveTypes = [Leave propTypeDescriptionListhasAll:true];
     _leaveStatuses = [Leave propStatusDescriptionListhasAll:true];
-    _propListLeaves = [NSMutableArray array];
-    _myLeaves = [NSMutableArray array];
+    _filteredLeaves = [NSMutableArray array];
     
     _pickerYear = [[VelosiCustomPicker alloc] initWithArray:self.propAppDelegate.filterYears rowSelectionDelegate:self selectedItem:[NSString stringWithFormat:@"%d",self.propAppDelegate.currYear]];
     _pickerLeaveType = [[VelosiCustomPicker alloc] initWithArray:_leaveTypes rowSelectionDelegate:self selectedItem:@"All"];
@@ -67,7 +65,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     CellMyLeave *cell = (CellMyLeave *)[tableView dequeueReusableCellWithIdentifier:@"cell"];
-    Leave *myLeave = [_myLeaves objectAtIndex:indexPath.row];
+    Leave *myLeave = [_filteredLeaves objectAtIndex:indexPath.row];
     cell.propLabelType.text = [myLeave propTypeDescription];
     cell.propLabelStatus.text = [myLeave propStatusDescription];
     cell.propLabelDuration.text = [NSString stringWithFormat:@"%@ - %@", [myLeave propStartDate], [myLeave propEndDate]];
@@ -81,7 +79,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return _myLeaves.count;
+    return _filteredLeaves.count;
 }
 
 - (IBAction)toggleList:(id)sender {
@@ -97,23 +95,20 @@
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             if([result isKindOfClass:[NSString class]])
                 [[[UIAlertView alloc] initWithTitle:@"" message:result delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil] show];
-            else{
-                [_propListLeaves removeAllObjects];
-                [_propListLeaves addObjectsFromArray:result];
-                
-                [self reloadMyLeaves];
-                [self.propAppDelegate.propGatewayOffline serializeMyLeaves:_propListLeaves];
-            }
+            else
+                [self.propAppDelegate updateMyLeaves:result];
+
+            [self filterLeaves];
         });
     });
 }
 
-- (void)reloadMyLeaves{
-    [_myLeaves removeAllObjects];
-    for(Leave *myLeave in _propListLeaves){
+- (void)filterLeaves{
+    [_filteredLeaves removeAllObjects];
+    for(Leave *myLeave in [self.propAppDelegate myLeaves]){
         if([[myLeave propStatusDescription] isEqualToString:_propFieldLeaveStatus.text] || [_propFieldLeaveStatus.text isEqualToString:[AppDelegate all]]){ //filter by status
             if([[myLeave propTypeDescription] isEqualToString:_propFieldLeaveType.text] || [_propFieldLeaveType.text isEqualToString:[AppDelegate all]]){
-                [_myLeaves addObject:myLeave];
+                [_filteredLeaves addObject:myLeave];
             }
         }
     }
@@ -133,7 +128,7 @@
     else if(pickerView == _pickerLeaveStatus)
         _propFieldLeaveStatus.text = [_leaveStatuses objectAtIndex:row];
     
-    [self reloadMyLeaves];
+    [self filterLeaves];
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
@@ -148,7 +143,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([sender isKindOfClass:[UITableViewCell class]]){
         VCMyLeaveDetail *vcMyLeaveDetails = (VCMyLeaveDetail *)segue.destinationViewController;
-        vcMyLeaveDetails.propLeave = [_propListLeaves objectAtIndex:((CellMyLeave *)sender).tag];
+        vcMyLeaveDetails.propLeave = [_filteredLeaves objectAtIndex:((CellMyLeave *)sender).tag];
     }
 }
 

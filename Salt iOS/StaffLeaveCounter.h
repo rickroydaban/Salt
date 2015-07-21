@@ -14,6 +14,7 @@
 
 - (StaffLeaveCounter *)initWithAppDelegate:(AppDelegate *)appDelegate;
 - (void)syncToServer:(id<StaffLeaveSyncListener>)syncListener;
+- (void)updateValues; //only be called when offline mode
 //reqs
 - (int)approvedVLRequests;
 - (int)approvedSLReqests;

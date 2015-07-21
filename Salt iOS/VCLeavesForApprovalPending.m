@@ -98,7 +98,7 @@
 
 - (void)reloadPendingLeavesForApprovalWithName:(NSString *)name{
      [_pendingLeavesForApproval removeAllObjects];
-    for(Leave *leaveForApproval in parentTabbar.propLeavesForApproval){
+    for(Leave *leaveForApproval in [self.propAppDelegate leavesForApproval]){
         if([leaveForApproval propStatusID] == LEAVESTATUSID_PENDING){ //filter by status
             if([[leaveForApproval propTypeDescription] isEqualToString:_fieldType.text] || [_fieldType.text isEqualToString:[AppDelegate all]]){
                 if([[[leaveForApproval propStaffName] lowercaseString] containsString:[name lowercaseString]] || name.length<1){ //filter by staff name

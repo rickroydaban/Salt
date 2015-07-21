@@ -39,7 +39,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     _days = [NSMutableArray array];
     _daysMap = [NSMutableDictionary dictionary];
     [_days addObject:HALFDAY_AM];
@@ -47,7 +46,7 @@
     [_days addObject:HALFDAY_PM];
     [_daysMap setObject:@"0.2" forKey:HALFDAY_PM];
     [_days addObject:ONEDAYLEAVE];
-    
+    [_daysMap setObject:@"1.0" forKey:ONEDAYLEAVE];
     for(float i=2; i<30; i++){
         NSString *dayValue = [NSString stringWithFormat:@"%.1f",i];
         NSString *dayString = [NSString stringWithFormat:@"%@ Days",dayValue];
@@ -63,6 +62,7 @@
         _propFieldStaff.text = [_propLeave propStaffName];
         _propFieldDateFrom.text = [_propLeave propStartDate];
         _propFieldDateTo.text = [_propLeave propEndDate];
+        NSLog(@"propdays %.1f",[_propLeave propDays]);
         _propFieldDays.text = [_daysMap allKeysForObject:[NSString stringWithFormat:@"%.1f",[_propLeave propDays]]][0];
         _propFieldWorkingDays.text = [NSString stringWithFormat:@"%.1f",[_propLeave propWorkingDays]];
         _propTextViewNotes.text = [_propLeave propNotes];

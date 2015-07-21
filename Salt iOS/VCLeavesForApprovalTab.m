@@ -12,6 +12,7 @@
 
 @interface VCLeavesForApprovalTab (){
     id<LoaderDelegate> _loaderDelegate;
+    AppDelegate *_appDelegate;
 }
 
 @end
@@ -21,8 +22,7 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    _propLeavesForApproval = [NSMutableArray array];
-    
+    _appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -41,12 +41,9 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             if([result isKindOfClass:[NSString class]]) [_loaderDelegate loadFailedWithError:result];
-            else{
-                [_propLeavesForApproval removeAllObjects];
-                [_propLeavesForApproval addObjectsFromArray:result];
-                [((AppDelegate *)[[UIApplication sharedApplication] delegate]).propGatewayOffline serializeLeavesForApproval:self.propLeavesForApproval];
-                [_loaderDelegate loadFinished];
-            }
+            else[_appDelegate updateLeavesForApproval:result];
+            
+            [_loaderDelegate loadFinished];
         });
     });
 }

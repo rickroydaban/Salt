@@ -93,7 +93,7 @@
 
 - (void)reloadCancelledLeavesForApprovalWithName:(NSString *)name{
     [_cancelledLeavesForApproval removeAllObjects];
-    for(Leave *leaveForApproval in parentTabBar.propLeavesForApproval){
+    for(Leave *leaveForApproval in [self.propAppDelegate leavesForApproval]){
         if([leaveForApproval propStatusID] == LEAVESTATUSID_CANCELLED){ //filter by status
             if([[leaveForApproval propTypeDescription] isEqualToString:_fieldType.text] || [_fieldType.text isEqualToString:[AppDelegate all]]){
                 if([[[leaveForApproval propStaffName] lowercaseString] containsString:[name lowercaseString]] || name.length<1){

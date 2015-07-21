@@ -11,8 +11,6 @@
 
 @interface VCLeavesForApprovalTab : UITabBarController
 
-@property (strong, nonatomic) NSMutableArray *propLeavesForApproval;
-
 - (void)setCurrentLoaderDelegate:(id<LoaderDelegate>)loaderDelegate;
 - (void)reloadLeavesForApprovalList;
 

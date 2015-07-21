@@ -38,8 +38,12 @@
 - (void)initMyLeaves:(NSArray *)myLeaves leavesForApproval:(NSArray *)leavesForApproval;
 - (void)updateMyLeaves:(NSMutableArray *)myLeaves;
 - (void)updateLeavesForApproval:(NSMutableArray *)leavesForApproval;
+- (void)updateMonthlyHolidays:(NSMutableArray *)monthlyHolidays;
+- (void)updateLocalHolidays:(NSMutableArray *)localHolidays;
 - (NSArray *)myLeaves;
 - (NSArray *)leavesForApproval;
+- (NSArray *)monthlyHolidays;
+- (NSArray *)localHolidays;
 
 - (void)setSlider:(VCSlider *)slider;
 + (NSString *)all;

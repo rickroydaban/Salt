@@ -99,7 +99,7 @@
 
 - (void)reloadApprovedLeavesForApprovalWithName:(NSString *)name{
     [_processedLeavesForApproval removeAllObjects];
-    for(Leave *leaveForApproval in _parentTabBar.propLeavesForApproval){
+    for(Leave *leaveForApproval in [self.propAppDelegate leavesForApproval]){
         if([leaveForApproval propStatusID]==LEAVESTATUSID_APPROVED || [leaveForApproval propStatusID]==LEAVESTATUSID_REJECTED){
             if([[leaveForApproval propTypeDescription] isEqualToString:_fieldType.text] || [_fieldType.text isEqualToString:[AppDelegate all]]){
                 if([[[leaveForApproval propStaffName] lowercaseString] containsString:[name lowercaseString]] || name.length<1){ //filter by staff name

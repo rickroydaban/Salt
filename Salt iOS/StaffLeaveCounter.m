@@ -84,7 +84,6 @@
             else if([leave propTypeID] == LEAVETYPEID_MATERNITY) { _pendingMPLDays+=[leave propWorkingDays]; }
         }
     }
-    
 }
 
 - (int)approvedVLRequests{

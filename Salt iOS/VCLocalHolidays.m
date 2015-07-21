@@ -11,7 +11,6 @@
 #import "CellLocalHolidays.h"
 
 @interface VCLocalHolidays (){
-    NSMutableArray *_propListLocalHolidays; //impose mutability since the values will change here every refresh
     NSMutableArray *_propListHeaders;
     NSMutableDictionary *_propDictHeaderItems;
     
@@ -26,7 +25,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _propListLocalHolidays = [NSMutableArray array];
     _propListHeaders = [NSMutableArray array];
     _propDictHeaderItems = [NSMutableDictionary dictionary];
     
@@ -73,26 +71,24 @@
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             if([result isKindOfClass:[NSString class]])
                 [[[UIAlertView alloc] initWithTitle:@"" message:result delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil] show];
-            else{
-                [_propListHeaders removeAllObjects];
-                [_propListLocalHolidays removeAllObjects];
-                [_propListLocalHolidays addObjectsFromArray:result];
-                [_propDictHeaderItems removeAllObjects];
+            else
+                [self.propAppDelegate updateLocalHolidays:result];
+
+            [_propListHeaders removeAllObjects];
+            [_propDictHeaderItems removeAllObjects];
                 
-                NSString *tempHeader = @"";
-                for(LocalHoliday *localHoliday in _propListLocalHolidays){
-                    if(![[localHoliday propMonth] isEqualToString:tempHeader]){
-                        tempHeader = [localHoliday propMonth];
-                        [_propListHeaders addObject:tempHeader];
-                        [_propDictHeaderItems setObject:[NSMutableArray array] forKey:tempHeader];
-                        [(NSMutableArray *)[_propDictHeaderItems objectForKey:tempHeader] addObject:localHoliday];
-                    }else
-                        [(NSMutableArray *)[_propDictHeaderItems objectForKey:tempHeader] addObject:localHoliday];
-                }
-                
-                [_propLV reloadData];
-                [self.propAppDelegate.propGatewayOffline serializeLocalHolidays:_propListLocalHolidays];
+            NSString *tempHeader = @"";
+            for(LocalHoliday *localHoliday in [self.propAppDelegate localHolidays]){
+                if(![[localHoliday propMonth] isEqualToString:tempHeader]){
+                    tempHeader = [localHoliday propMonth];
+                    [_propListHeaders addObject:tempHeader];
+                    [_propDictHeaderItems setObject:[NSMutableArray array] forKey:tempHeader];
+                    [(NSMutableArray *)[_propDictHeaderItems objectForKey:tempHeader] addObject:localHoliday];
+                }else
+                    [(NSMutableArray *)[_propDictHeaderItems objectForKey:tempHeader] addObject:localHoliday];
             }
+                
+            [_propLV reloadData];
         });
     });
 }

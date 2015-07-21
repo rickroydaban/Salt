@@ -8,16 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
-@interface Holiday : NSObject
+#import "OfflineGatewaySavable.h"
+@interface Holiday : NSObject<OfflineGatewaySavable>
 
 - (Holiday *)initWithName:(NSString *)name country:(NSString *)country velosiDateStr:(NSString *)velosiDateStr monthYearDateStr:(NSString *)monthYearDateStr date:(NSDate *)date;
+- (Holiday *)initWithDictionary:(NSDictionary *)dictionary;
 - (void)addOfficeName:(NSString *)officeName;
 - (NSString *)country;
 - (NSString *)name;
 - (NSString *)officeStr;
 
-- (NSDate *)date;
+- (NSDate *)dateWithFormatter:(NSDateFormatter *)dateFormatterVelosiDate;
 - (NSString *)dateStr;
 - (NSString *)monthName;
 - (NSString *)year;

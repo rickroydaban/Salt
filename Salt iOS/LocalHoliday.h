@@ -12,6 +12,7 @@
 @interface LocalHoliday : NSObject<OfflineGatewaySavable>
 
 - (LocalHoliday *)initWithName:(NSString *)name date:(NSString *)date day:(NSString *)day month:(NSString *)month;
+- (LocalHoliday *)initWithDictionary:(NSDictionary *)dictionary;
 - (NSString *)propName;
 - (NSString *)propDate;
 - (NSString *)propDay;

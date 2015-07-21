@@ -161,6 +161,7 @@
 - (void)onSyncFailed:(NSString *)errorMessage{
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     [[[UIAlertView alloc] initWithTitle:@"" message:errorMessage delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil] show];
+    propLabelName.text = [NSString stringWithFormat:@"%@, %@",[[self.propAppDelegate staff] lname], [[self.propAppDelegate staff] fname]];
 }
 
 @end

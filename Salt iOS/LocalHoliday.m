@@ -30,6 +30,13 @@
     return self;
 }
 
+- (LocalHoliday *)initWithDictionary:(NSDictionary *)dictionary{
+    if([super init])
+        _dictionary = dictionary;
+
+    return self;
+}
+
 - (NSString *)propName{
     return [_dictionary objectForKey:LOCALHOLIDAY_KEY_NAME];
 }

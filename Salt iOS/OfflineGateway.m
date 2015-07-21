@@ -13,6 +13,7 @@
 #define kEY_OFFICE @"officekey"
 //holidays
 #define KEY_LOCALHOLIDAYS @"localholidayskey"
+#define KEY_MONTHLYHOLIDAYS @"monthkyholidayskey"
 
 #import "OfflineGateway.h"
 
@@ -83,6 +84,16 @@
     [_prefs setObject:[[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:localHolidaysMap options:0 error:nil] encoding:NSUTF8StringEncoding] forKey:KEY_LOCALHOLIDAYS];
 }
 
+- (void)serializeMonthlyHolidays:(NSMutableArray *)monthlyHolidays{
+    NSMutableArray *monthlyHolidaysMap = [NSMutableArray array];
+    
+    for(Holiday *monthlyHoliday in monthlyHolidays){
+        [monthlyHolidaysMap addObject:[monthlyHoliday savableDictionary]];
+    }
+    
+    [_prefs setObject:[[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:monthlyHolidaysMap options:0 error:nil] encoding:NSUTF8StringEncoding] forKey:KEY_MONTHLYHOLIDAYS];
+}
+
 - (Staff *)deserializeStaff{
     return [[Staff alloc] initWithOfflineGateway:_appDelegate.propGatewayOffline staffDictionary:[NSJSONSerialization JSONObjectWithData:[[_prefs objectForKey:KEY_STAFF] dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil]];
 }
@@ -92,14 +103,43 @@
 }
 
 - (NSMutableArray *)deserializeMyLeaves{
-    return [NSJSONSerialization JSONObjectWithData:[[_prefs objectForKey:KEY_MYLEAVES] dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
+    NSArray *savedMyLeavesDict = [NSJSONSerialization JSONObjectWithData:[[_prefs objectForKey:KEY_MYLEAVES] dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
+    NSMutableArray *returnableMyLeaves = [NSMutableArray array];
+    for(NSDictionary *savedMyLeaveDict in savedMyLeavesDict)
+        [returnableMyLeaves addObject:[[Leave alloc] initWithDictionary:[savedMyLeaveDict mutableCopy]]];
+    
+    return returnableMyLeaves;
 }
 
 - (NSMutableArray *)deserializeLeavesForApproval{
-    return [NSJSONSerialization JSONObjectWithData:[[_prefs objectForKey:KEY_LEAVESFORAPPROVAL] dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
+    NSArray *savedLeavesForApprovalDict = [NSJSONSerialization JSONObjectWithData:[[_prefs objectForKey:KEY_LEAVESFORAPPROVAL] dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
+    NSMutableArray *returnableLeavesForApproval = [NSMutableArray array];
+    for(NSDictionary *savedLeaveForApprovalDict in savedLeavesForApprovalDict)
+        [returnableLeavesForApproval addObject:[[Leave alloc] initWithDictionary:[savedLeaveForApprovalDict mutableCopy]]];
+    
+    return returnableLeavesForApproval;
 }
 
 - (NSMutableArray *)deserializeLocalHolidays{
-    return [NSJSONSerialization JSONObjectWithData:[[_prefs objectForKey:KEY_LOCALHOLIDAYS] dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
+    NSMutableArray *localHolidays = [NSMutableArray array];
+    if([_prefs objectForKey:KEY_LOCALHOLIDAYS]){
+        NSArray *savedLocalHolidays = [NSMutableArray arrayWithArray:[NSJSONSerialization JSONObjectWithData:[[_prefs objectForKey:KEY_LOCALHOLIDAYS] dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil]];
+        for(NSDictionary *savedLocalHolidayDict in savedLocalHolidays)
+            [localHolidays addObject:[[LocalHoliday alloc] initWithDictionary:savedLocalHolidayDict]];
+    }
+
+    return localHolidays;
 }
+
+- (NSMutableArray *)deserializeMonthlyHolidays{
+    NSMutableArray *monthlyHolidays = [NSMutableArray array];
+    if([_prefs objectForKey:KEY_MONTHLYHOLIDAYS]){
+        NSArray *savedMonthlyHolidays = [NSMutableArray arrayWithArray:[NSJSONSerialization JSONObjectWithData:[[_prefs objectForKey:KEY_MONTHLYHOLIDAYS] dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil]];
+        for(NSDictionary *savedMonthlyHolidayDict in savedMonthlyHolidays)
+            [monthlyHolidays addObject:[[Holiday alloc] initWithDictionary:savedMonthlyHolidayDict]];
+    }
+    
+    return monthlyHolidays;
+}
+
 @end

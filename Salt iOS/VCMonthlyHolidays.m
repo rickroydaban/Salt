@@ -22,7 +22,7 @@
     IBOutlet UITableView *_propLV;
     
     NSArray *_months;
-    NSMutableArray *_allHolidays, *_selectedMonthHolidays;
+    NSMutableArray *_selectedMonthHolidays;
     NSCalendar *_calendar;
     
     UIPickerView *_pickerMonth, *_pickerYear;
@@ -38,7 +38,6 @@
     
     _calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     _months = @[@"January", @"February", @"March", @"April", @"May", @"June", @"July", @"August", @"September", @"October", @"November", @"December"];
-    _allHolidays = [NSMutableArray array];
     _selectedMonthHolidays = [NSMutableArray array];
     
     NSArray *monthYear = [[self.propAppDelegate.propDateFormatMonthyear stringFromDate:[NSDate date]] componentsSeparatedByString:@"-"];
@@ -109,18 +108,17 @@
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             if([result isKindOfClass:[NSString class]])
                 [[[UIAlertView alloc] initWithTitle:@"" message:result delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil] show];
-            else{
-                [_allHolidays removeAllObjects];
-                [_allHolidays addObjectsFromArray:result];
-                [self reloadSelectedMonthHolidays];
-            }
+            else
+                [self.propAppDelegate updateMonthlyHolidays:result];
+            
+            [self reloadSelectedMonthHolidays];
         });
     });
 }
 
 - (void)reloadSelectedMonthHolidays{
     [_selectedMonthHolidays removeAllObjects];
-    for(Holiday *holiday in _allHolidays){
+    for(Holiday *holiday in [self.propAppDelegate monthlyHolidays]){
         if([[holiday monthName] isEqualToString:_fieldMonth.text] && [[holiday year] isEqualToString:_fieldYear.text]){
             [_selectedMonthHolidays addObject:holiday];
         }

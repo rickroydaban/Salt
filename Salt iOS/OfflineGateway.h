@@ -11,6 +11,7 @@
 #import "Office.h"
 #import "Leave.h"
 #import "LocalHoliday.h"
+#import "Holiday.h"
 #import "AppDelegate.h"
 
 @interface OfflineGateway : NSObject
@@ -26,10 +27,12 @@
 - (void)serializeMyLeaves:(NSMutableArray *)myLeaves;
 - (void)serializeLeavesForApproval:(NSMutableArray *)leavesForApproval;
 - (void)serializeLocalHolidays:(NSMutableArray *)localHolidays;
+- (void)serializeMonthlyHolidays:(NSMutableArray *)monthlyHolidays;
 - (Staff *)deserializeStaff;
 - (Office *)deserializeStaffOffice;
 - (NSMutableArray *)deserializeMyLeaves;
 - (NSMutableArray *)deserializeLeavesForApproval;
 - (NSMutableArray *)deserializeLocalHolidays;
+- (NSMutableArray *)deserializeMonthlyHolidays;
 
 @end
